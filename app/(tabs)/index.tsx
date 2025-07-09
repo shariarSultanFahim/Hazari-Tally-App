@@ -1,4 +1,3 @@
-import card1Image from "@/assets/cards/card1.png";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "@react-navigation/native";
@@ -10,6 +9,7 @@ import {
   Image,
   Platform,
   Pressable,
+  SafeAreaView,
   ScrollView,
   Text,
   View,
@@ -71,7 +71,7 @@ export default function HomeScreen() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#0E0045" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#2e0249" }}>
       {/* Header with Create Button */}
       <LinearGradient
         colors={["#396197", "#5D1DC1"]}
@@ -86,7 +86,7 @@ export default function HomeScreen() {
       >
         <View className="items-center">
           <Image
-            source={card1Image}
+            source={require("@/assets/cards/card1.png")}
             className="w-40 h-40 mb-6"
             resizeMode="contain"
           />
@@ -129,6 +129,6 @@ export default function HomeScreen() {
           ))
         )}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

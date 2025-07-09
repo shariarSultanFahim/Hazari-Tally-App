@@ -69,8 +69,9 @@ export default function CreateScreen() {
     }
 
     try {
+      const gameId = Date.now().toString();
       const newGame = {
-        id: Date.now().toString(),
+        id: gameId,
         title: gameTitle.trim(),
         players: validPlayers,
         createdAt: new Date().toISOString(),
@@ -96,11 +97,8 @@ export default function CreateScreen() {
       setTotalPoints("1000");
       setRoundScore("360");
 
-      router.push("/(tabs)");
-
-      setTimeout(() => {
-        Alert.alert("Success", "Game created successfully!");
-      }, 100);
+      // Navigate to game details instead of home
+      router.replace(`/components/game.details?id=${gameId}`);
     } catch (error) {
       console.error("Error saving game:", error);
       Alert.alert("Error", "Failed to save game");
